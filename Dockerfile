@@ -5,4 +5,4 @@ RUN apt-get -y install curl
 COPY notification.sh ./
 RUN chmod +x ./notification.sh
 
-ENTRYPOINT [ "./notification.sh" ]
+ENTRYPOINT [ "/notification.sh" ]
