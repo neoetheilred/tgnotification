@@ -1,0 +1,25 @@
+name: 'Send telegram notification'
+description: 'Send notification via telegram bot to specified chat'
+inputs:
+  telegram_token:
+    description: 'Telegram token of a bot which is used to send notification'
+    required: true
+  chat_id:
+    description: 'Chat id to which notification is to be sent'
+    required: true
+  message:
+    description: 'Message to be sent'
+    required: true
+  formatting:
+    description: 'Message formatting type (html, markdown)'
+outputs:
+  response:
+    description: 'Message that has been sent or error object'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.telegram_token }}
+    - ${{ inputs.chat_id }}
+    - ${{ inputs.message }}
+    - ${{ inputs.formatting }}
