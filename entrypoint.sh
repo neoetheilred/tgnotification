@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-body="{\"chat_id\": \"$2\", \"text\":\"$3\"}"
+body="{\"chat_id\": \"$2\", \"text\":\"$3\", \"parse_mode\": \"MarkdownV2\"}"
 
 echo $body
 response=$(curl -X POST \
