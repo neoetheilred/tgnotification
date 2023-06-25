@@ -3,7 +3,8 @@
 body="{\"chat_id\"=\"$2\", \"text\":\"$3\"}"
 
 echo $body
-response=$(curl -d "$body" https://api.telegram.org/bot$1/sendMessage -H 'Content-Type: application/json')
+# response=$(curl -d "$body" https://api.telegram.org/bot$1/sendMessage -H 'Content-Type: application/json')
+response=$(curl https://api.telegram.org/bot$1/getMe)
 echo $response
 echo "response=$response" >> $GITHUB_OUTPUT
 status="$(echo $response | jq -r '.ok')" # extract `ok` field from response, if ok==false, then request is failed
