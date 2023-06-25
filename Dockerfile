@@ -2,7 +2,7 @@ FROM debian:11-slim
 
 RUN apt update && apt upgrade
 RUN apt-get -y install curl
-COPY notification.sh ./
-RUN chmod +x ./notification.sh
+COPY entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
 
-ENTRYPOINT [ "/notification.sh" ]
+ENTRYPOINT [ "/entrypoint.sh" ]
