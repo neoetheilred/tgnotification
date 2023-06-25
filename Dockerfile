@@ -1,7 +1,7 @@
-FROM alpine:latest
+FROM debian:11-slim
 
-RUN apk add libc6-compat
-RUN apk add curl
+RUN apt update && apt upgrade
+RUN apt-get -y install curl
 COPY notification.sh ./
 RUN chmod +x ./notification.sh
 
